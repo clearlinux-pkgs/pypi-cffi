@@ -4,7 +4,7 @@
 #
 Name     : pypi-cffi
 Version  : 1.15.0
-Release  : 114
+Release  : 115
 URL      : https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz
 Summary  : Foreign Function Interface for Python calling C code.
@@ -14,13 +14,8 @@ Requires: pypi-cffi-license = %{version}-%{release}
 Requires: pypi-cffi-python = %{version}-%{release}
 Requires: pypi-cffi-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-Provides: cffi
-Provides: cffi-python
-Provides: cffi-python3
-BuildRequires : cffi
 BuildRequires : libffi-dev
 BuildRequires : pkgconfig(libffi)
-BuildRequires : pycparser
 BuildRequires : pypi(pycparser)
 
 %description
@@ -67,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641421915
+export SOURCE_DATE_EPOCH=1641933205
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
