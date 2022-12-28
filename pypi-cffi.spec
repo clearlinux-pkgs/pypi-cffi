@@ -4,7 +4,7 @@
 #
 Name     : pypi-cffi
 Version  : 1.15.1
-Release  : 127
+Release  : 128
 URL      : https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz
 Summary  : Foreign Function Interface for Python calling C code.
@@ -89,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1672252830
+export SOURCE_DATE_EPOCH=1672262079
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
@@ -111,7 +111,7 @@ popd
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-cffi
-cp %{_builddir}/cffi-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-cffi/65e8b9015ffb0747c23370a3d3af2a796c64780e
+cp %{_builddir}/cffi-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-cffi/65e8b9015ffb0747c23370a3d3af2a796c64780e || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
