@@ -5,7 +5,7 @@
 #
 Name     : pypi-cffi
 Version  : 1.16.0
-Release  : 133
+Release  : 134
 URL      : https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz
 Summary  : Foreign Function Interface for Python calling C code.
@@ -19,6 +19,7 @@ BuildRequires : libffi-dev
 BuildRequires : pkgconfig(libffi)
 BuildRequires : pypi(pycparser)
 BuildRequires : pypi(setuptools)
+BuildRequires : python3-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -70,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1695997902
+export SOURCE_DATE_EPOCH=1697230857
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
@@ -110,7 +111,7 @@ export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pypi-cffi
 cp %{_builddir}/cffi-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-cffi/65e8b9015ffb0747c23370a3d3af2a796c64780e || :
-pip install --root=%{buildroot} --no-deps --ignore-installed dist/*.whl
+python3 -m installer --destdir=%{buildroot} dist/*.whl
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -120,7 +121,7 @@ CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -m64 -march=x86-64-v3 -Wl,-z,x86-64-v3 "
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -m64 -march=x86-64-v3 "
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS -m64 -march=x86-64-v3 "
-pip install --root=%{buildroot}-v3 --no-deps --ignore-installed dist/*.whl
+python3 -m installer --destdir=%{buildroot}-v3 dist/*.whl
 popd
 /usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
