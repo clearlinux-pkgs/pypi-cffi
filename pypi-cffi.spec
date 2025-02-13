@@ -7,7 +7,7 @@
 #
 Name     : pypi-cffi
 Version  : 1.17.1
-Release  : 141
+Release  : 142
 URL      : https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/fc/97/c783634659c2920c3fc70419e3af40972dbaf758daa229a7d6ea6135c90d/cffi-1.17.1.tar.gz
 Summary  : Foreign Function Interface for Python calling C code.
